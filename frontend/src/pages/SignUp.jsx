@@ -1,5 +1,3 @@
-import e from "express";
-import { set } from "mongoose";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -15,7 +13,7 @@ const SignUp = () => {
 
   // Function
   const handleSubmit = (e) => {
-    e.preventDefault;
+    e.preventDefault();
   };
   const handleChange = (e) => {
     if (e.target.id === "female" || e.target.id === "male") {
