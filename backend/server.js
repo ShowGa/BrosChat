@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
+import cors from "cors";
 import authRoute from "./Routes/auth-Route.js";
 import messageRoute from "./Routes/message-Route.js";
 import userRoute from "./Routes/user-Route.js";
@@ -20,6 +21,12 @@ mongoose
   });
 
 /*----Middleware----*/
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // to parse the req.body JSON payload

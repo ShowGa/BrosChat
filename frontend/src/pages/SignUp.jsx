@@ -1,7 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import AuthService from "../service/auth-service";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
   const [inputData, setInputData] = useState({
     fullName: "",
     username: "",
@@ -14,6 +19,32 @@ const SignUp = () => {
   // Function
   const handleSubmit = (e) => {
     e.preventDefault();
+    // check before submit data
+    const { fullName, username, password, confirmPassword, gender } = inputData;
+    if (!fullName || !username || !password || !confirmPassword || !gender) {
+      toast.error("Please complete all the form !");
+      return;
+    }
+    if (password !== confirmPassword) {
+      toast.error("Password doesn't match confirm password !");
+      return;
+    }
+    if (password.length < 6) {
+      toast.error("At least 6 characters for password !");
+    }
+
+    setLoading(true);
+    AuthService.signUp(inputData)
+      .then((res) => {
+        toast.success("Sign up successfully !");
+        navigate("/login");
+      })
+      .catch((e) => {
+        toast.error(e.response.data.error || e.message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
   const handleChange = (e) => {
     if (e.target.id === "female" || e.target.id === "male") {
