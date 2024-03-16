@@ -36,6 +36,7 @@ const SignUp = () => {
     setLoading(true);
     AuthService.signUp(inputData)
       .then((res) => {
+        console.log(res);
         toast.success("Sign up successfully !");
         navigate("/login");
       })
@@ -155,7 +156,7 @@ const SignUp = () => {
         <div className="inline-block mt-3">
           <span className="text-gray-200">Already have an account ? </span>
           <Link
-            to="/"
+            to="/login"
             className="text-sky-500 font-bold transition-all duration-200 border-opacity-0 border-b-2 border-b-sky-600 hover:border-opacity-100 inline-block"
           >
             Login
