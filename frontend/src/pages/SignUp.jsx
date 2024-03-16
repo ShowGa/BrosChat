@@ -36,12 +36,14 @@ const SignUp = () => {
     setLoading(true);
     AuthService.signUp(inputData)
       .then((res) => {
-        console.log(res);
         toast.success("Sign up successfully !");
         navigate("/login");
       })
       .catch((e) => {
-        toast.error(e.response.data.error || e.message);
+        const errMessage = e.response
+          ? e.response.data.error
+          : "Server Error! Please wait or contact us.";
+        toast.error(errMessage);
       })
       .finally(() => {
         setLoading(false);
@@ -151,7 +153,16 @@ const SignUp = () => {
               </label>
             </div>
           </div>
-          <button className="btn btn-sm mt-2 text-lg">Sign Up</button>
+          <button
+            disabled={loading}
+            className="btn btn-sm mt-2 text-lg disabled:cursor-not-allowed"
+          >
+            {loading ? (
+              <span className="loading loading-spinner"></span>
+            ) : (
+              "Sign Up"
+            )}
+          </button>
         </form>
         <div className="inline-block mt-3">
           <span className="text-gray-200">Already have an account ? </span>
