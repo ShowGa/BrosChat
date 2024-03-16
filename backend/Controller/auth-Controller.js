@@ -7,11 +7,14 @@ export const logIn = async (req, res) => {
     const { username, password } = req.body;
     // combine check user exist and check password is correct
     const foundUser = await User.findOne({ username });
+    if (!foundUser) {
+      return res.status(402).json({ error: "Invalid username or password !" });
+    }
     const isPasswordCorrect = await bcrypt.compare(
       password,
-      foundUser.password || ""
+      foundUser.password
     );
-    if (!isPasswordCorrect || !foundUser) {
+    if (!isPasswordCorrect) {
       return res.status(402).json({ error: "Invalid username or password !" });
     }
 
@@ -19,7 +22,7 @@ export const logIn = async (req, res) => {
     generateTokenAndSetCookie(foundUser._id, res);
     return res.status(200).json(rest);
   } catch (e) {
-    console.log("Error in login controller", e.message);
+    console.log("Error in login controller", e);
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
