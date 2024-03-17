@@ -9,3 +9,5 @@ console.log(result);
 const error = undefined;
 const error2 = "You suck dic";
 console.log(error || error2);
+
+console.log(Math.floor(0.9));
