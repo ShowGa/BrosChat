@@ -7,7 +7,6 @@ import { getRandomEmoji } from "../../utils/emoji";
 const Conversations = () => {
   const [loading, setLoading] = useState(false);
   const [conversations, setConversations] = useState([]);
-  console.log(conversations);
 
   useEffect(() => {
     setLoading(true);

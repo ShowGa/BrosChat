@@ -45,11 +45,12 @@ export const getMessage = async (req, res) => {
     const conversation = await Conversation.findOne({
       participants: { $all: [senderId, receiverId] },
     }).populate("message");
-    const messages = conversation.message;
+
+    const messages = conversation ? conversation.message : [];
 
     return res.status(200).json(messages);
   } catch (e) {
-    console.log("Error in geting message", e.message);
+    console.log("Error in getting message", e);
     return res.status(500).json({ error: "Internal server error !" });
   }
 };
