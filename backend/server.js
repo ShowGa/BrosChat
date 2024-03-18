@@ -3,11 +3,11 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
 import cors from "cors";
+import { app, server } from "./socket/socket.js";
 import authRoute from "./Routes/auth-Route.js";
 import messageRoute from "./Routes/message-Route.js";
 import userRoute from "./Routes/user-Route.js";
 
-const app = express();
 dotenv.config();
 
 const PORT = process.env.PORT || 8080;
@@ -34,6 +34,6 @@ app.use("/api/auth", authRoute);
 app.use("/api/messages", messageRoute);
 app.use("/api/users", userRoute);
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`App listening to port ${PORT}`);
 });
