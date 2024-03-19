@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080";
+const API_URL = "https://broschat.onrender.com";
 
 class MessageService {
   getMessage(receiverId) {
