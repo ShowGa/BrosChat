@@ -1,5 +1,7 @@
 import Conversation from "../Models/conversation-model.js";
 import Message from "../Models/message-model.js";
+import { getReceiverSocketId } from "../socket/socket.js";
+import { io } from "../socket/socket.js";
 
 export const sendMessage = async (req, res) => {
   try {
@@ -27,6 +29,14 @@ export const sendMessage = async (req, res) => {
     }
     // Optimize the code with Promise
     await Promise.all([newMessage.save(), foundConversation.save()]);
+    // Socket IO functionlaity
+    // this (getReceiverSocketId)function coming from socket.js
+    // check if the receiver is online , if so then send the message that you just sent to the endpoint (sendMessage)
+    const receiverSocketId = getReceiverSocketId(receiverId);
+    if (receiverSocketId) {
+      // send events to specific client
+      io.to(receiverSocketId).emit("newMessage", newMessage);
+    }
     // response
     return res.status(200).json(newMessage);
   } catch (e) {

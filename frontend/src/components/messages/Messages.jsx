@@ -4,8 +4,10 @@ import useConversation from "../../zustand/useConversation";
 import MessageService from "../../service/message-service";
 import toast from "react-hot-toast";
 import MessageSkeleton from "../skeleton/MessageSkeleton";
+import useListenMessages from "../../hooks/useListenMessages";
 
 const Messages = () => {
+  useListenMessages(); // Listen for incoming newMessage from socket
   const lastMessageRef = useRef();
   const [loading, setLoading] = useState(false);
   const { messages, setMessages, selectedConversation } = useConversation();

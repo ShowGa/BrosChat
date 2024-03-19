@@ -15,6 +15,7 @@ const Message = ({ message }) => {
     : selectedConversation?.profilePic;
   const bubbleBgColor = isMyMessage ? "bg-blue-500" : "bg-pink-500";
   const formattedTime = extractTime(message.createdAt);
+  const shakeClass = message.shouldShake ? "shake" : "";
 
   return (
     <div className={`chat ${chatClassName}`}>
@@ -24,7 +25,7 @@ const Message = ({ message }) => {
         </div>
       </div>
       <div
-        className={`chat-bubble text-white ${bubbleBgColor}`}
+        className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass}`}
         style={{ wordWrap: "break-word" }}
       >
         {message.message}

@@ -12,6 +12,11 @@ const io = new Server(server, {
   },
 });
 
+//
+export const getReceiverSocketId = (receiverId) => {
+  return userSocketMap[receiverId];
+};
+
 const userSocketMap = {}; // {userId: socketId}
 
 // listen for connnection and disconnect (online and offline)
@@ -20,7 +25,7 @@ io.on("connection", (socket) => {
 
   // get authUser._id when connected and make userSocketMap[userId](property) = socket._id
   const userId = socket.handshake.query.userId;
-  if (userId !== undefined) userSocketMap[userId] = socket._id;
+  if (userId !== undefined) userSocketMap[userId] = socket.id;
   //send the event to all the connected clients
   io.emit("getOnlineUsers", Object.keys(userSocketMap));
   // socket.on() is used to listen to the events. Can be used both client and server side.
