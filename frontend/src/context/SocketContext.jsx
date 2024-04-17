@@ -16,7 +16,7 @@ export const SocketContextProvider = ({ children }) => {
   useEffect(() => {
     if (authUser) {
       // connect to backend socket.io if there is authUser and send userId
-      const socket = io("http://localhost:8080", {
+      const socket = io("https://broschat.onrender.com", {
         query: {
           userId: authUser._id,
         },
