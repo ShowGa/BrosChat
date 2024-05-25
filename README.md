@@ -15,7 +15,7 @@ Link : <a href="https://broschat.onrender.com" target="_blank">Real-Estate Websi
 
 ## 介紹 (功能)
 - 創建用戶帳號
-- 實時通訊 
+- 實時通訊 (文字訊息)
 
 ## 感謝
 這個項目來自<a href="https://github.com/burakorkmez" target="_blank">Burak (As a Programmer)</a>的教學。
@@ -41,7 +41,7 @@ Link : <a href="https://broschat.onrender.com" target="_blank">Real-Estate Websi
 
 ## Introduction(Features)
 - Create user
-- Real-time chatting
+- Real-time chatting (text message)
 
 ## Appreciation
 This project comes from the tutorial taught by <a href="https://github.com/burakorkmez" target="_blank">Burak (As a Programmer)</a>
