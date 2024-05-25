@@ -1,6 +1,3 @@
-<h2>Project Website : https://broschat.onrender.com</h2>
-<p>Should be waiting for 40 seconds base on policy of Render deployment website</p>
-
 ## 兄弟Chat
 ‼️ 根據Render部署服務政策，請等待大約40秒讓伺服器運行(免費用戶限制) .
 <br>
