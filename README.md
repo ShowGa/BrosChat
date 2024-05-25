@@ -1,7 +1,7 @@
 ## 兄弟Chat
 ‼️ 根據Render部署服務政策，請等待大約40秒讓伺服器運行(免費用戶限制) .
 <br>
-Link : <a href="https://broschat.onrender.com" target="_blank">Real-Estate Website</a>
+Link : <a href="https://broschat.onrender.com" target="_blank">BrosChat</a>
 
 ## 技術
 [![broschat-drawio.png](https://i.postimg.cc/FRLfR2Kk/broschat-drawio.png)](https://postimg.cc/VrzsZZnz)
@@ -28,7 +28,7 @@ As a Programmer 官方Youtube頻道 : <a href="https://www.youtube.com/@asaprogr
 ## BrosChat
 ‼️ Please wait for 40 seconds for waking up the server according to the policy of Render deployment service (Free users limitation) .
 <br>
-Link : <a href="https://broschat.onrender.com" target="_blank">Real-Estate Website</a>
+Link : <a href="https://broschat.onrender.com" target="_blank">BrosChat</a>
 
 ## Tech stack
 - React.js
